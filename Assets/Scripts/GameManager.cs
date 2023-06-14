@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
     int[,] map;
     [SerializeField] GameObject GroundPrefab;
     [SerializeField] GameObject WallPrefab;
-
+    [SerializeField] int MapSize;
     // Start is called before the first frame update
     void Start()
     {
-        map = new int[8, 8];
+        map = new int[MapSize, MapSize];
 
         for (int i = 0; i < map.GetLength(0); i++)
         {
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         }
         else if(ID == 0)
         {
-            Instantiate(WallPrefab, Pos, Quaternion.identity); 
+            Instantiate(WallPrefab, Pos, Quaternion.Euler(0, 180, 0)); 
         }
     }
 
