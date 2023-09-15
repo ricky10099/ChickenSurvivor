@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {    public enum MODE
@@ -17,26 +18,39 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject WallColliderPrefab;
 
     [SerializeField] int MapSize;
+
+    NavMeshSurface myNavMesh; //自身のナビメッシュサーフェース
+
     // Start is called before the first frame update
     void Start()
     {
-        WallPrefab.transform.localScale = new Vector3( 2.0f, 0.7f, 1.1f);
+        //自身のナビメッシュサーフェースを取得
+        myNavMesh = GetComponent<NavMeshSurface>();
+
+        CreateMap();
+
+        GameMode = MODE.PLAY;
+    }
+
+    void CreateMap()
+    {
+        WallPrefab.transform.localScale = new Vector3(2.0f, 0.7f, 1.1f);
 
         map = new int[MapSize, MapSize];
 
         for (int i = 0; i < MapSize; i++)
         {
-            for(int j = 0; j < MapSize; j++)
+            for (int j = 0; j < MapSize; j++)
             {
-                if(i == 0 || j == 0 || i == MapSize - 1 || j == MapSize - 1)
+                if (i == 0 || j == 0 || i == MapSize - 1 || j == MapSize - 1)
                 {
-                    map [i, j] = 0;
+                    map[i, j] = 0;
                 }
                 else
                 {
                     map[i, j] = 1;
                 }
-                SpawnMap(i - MapSize * 0.5f, j - MapSize * 0.5f, map[i, j]);
+                SpawnGround(i - MapSize * 0.5f, j - MapSize * 0.5f, map[i, j]);
             }
         }
         float colliderLength = MapSize + 20;
@@ -45,15 +59,19 @@ public class GameManager : MonoBehaviour
         Instantiate(WallColliderPrefab, new Vector3((MapSize * 0.5f) - 1, 0, 0), Quaternion.Euler(0, 90, 0));
         Instantiate(WallColliderPrefab, new Vector3(0, 0, (-MapSize * 0.5f)), Quaternion.Euler(0, 0, 0));
         Instantiate(WallColliderPrefab, new Vector3((-MapSize * 0.5f), 0, 0), Quaternion.Euler(0, 90, 0));
+
+        //床が用意できたのでナビメッシュ面積を計算
+        myNavMesh.BuildNavMesh();
     }
 
-    void SpawnMap(float x, float z, int ID)
+    void SpawnGround(float x, float z, int ID)
     {
         Vector3 Pos = new Vector3(x, 0, z); 
  
         if ( ID == 1 ) 
         {
-            Instantiate(GroundPrefab, Pos, Quaternion.identity); 
+            GameObject ground = Instantiate(GroundPrefab, Pos, Quaternion.identity); 
+            ground.transform.parent = transform;//床の親をマネージャーに
         }
         else if(ID == 0)
         {
