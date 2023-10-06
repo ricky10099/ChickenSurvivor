@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject EnemyPrefab; //ƒƒeƒIƒvƒŒƒnƒu
-    [SerializeField] float Radian = 10.0f; //¶¬”¼Œa
+    [SerializeField] float MaxRadius = 10.0f; //¶¬”¼Œa
     [SerializeField] float IntervalBias = 0.99f; //¶¬ŠÔŠuŒW”
     [SerializeField] float SpeedBias = 0.1f; //‘¬“xŒW”
     [SerializeField] float InitInterval = 3.0f; //‰Šú¶¬ŠÔŠu
@@ -50,13 +50,14 @@ public class EnemySpawner : MonoBehaviour
                 //¶¬ˆÊ’u‚ğ‹‚ß‚é
                 Vector3 Pos = player.transform.position;
                 float Theta = Random.Range(0, Mathf.PI * 2.0f);
-                Pos.x += Mathf.Cos(Theta) * Radian;
-                Pos.z += Mathf.Sin(Theta) * Radian;
+                float Radius = Random.Range(3, MaxRadius);
+                Pos.x += Mathf.Cos(Theta) * Radius;
+                Pos.z += Mathf.Sin(Theta) * Radius;
                 Pos.y = 2.5f;
-                //ƒƒeƒI‚ğ¶¬
+                //“G‚ğ¶¬
                 GameObject M = Instantiate(EnemyPrefab, Pos, Quaternion.identity);
                 //¶¬ˆÊ’u‚Ì‹tƒxƒNƒgƒ‹‚ğis•ûŒü‚Æ‚µ‚Ä—^‚¦‚é
-                M.GetComponent<Rigidbody>().velocity = -M.transform.position.normalized * Speed;
+                //M.GetComponent<Rigidbody>().velocity = -M.transform.position.normalized * Speed;
                 Interval *= IntervalBias; //Ÿ‚Ì¶¬ŠÔŠu‚ğ’Z‚­‚·‚é
                 Speed += SpeedBias;//Ÿ‚Ì‘¬“x‚ğã‚°‚é
                 Elapsed = 0.0f;

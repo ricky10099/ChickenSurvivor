@@ -19,23 +19,23 @@ public class PlayerAction : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //float v;
-        //float h;
-        //if (Application.platform == RuntimePlatform.IPhonePlayer)
-        //{
-        //    h = Input.acceleration.x;
-        //    v = Input.acceleration.y;
+        float v;
+        float h;
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            h = Input.acceleration.x;
+            v = Input.acceleration.y;
 
-        //}
-        //else
-        //{
-        //    h = Input.GetAxis("Horizontal");
-        //    v = Input.GetAxis("Vertical");
-        //}
+        }
+        else
+        {
+            h = Input.GetAxis("Horizontal");
+            v = Input.GetAxis("Vertical");
+        }
 
-        h = Input.GetAxis("Horizontal"); //入力デバイスの水平軸
-        v = Input.GetAxis("Vertical"); //入力デバイスの垂直軸
-
+        //h = Input.GetAxis("Horizontal"); //入力デバイスの水平軸
+        //v = Input.GetAxis("Vertical"); //入力デバイスの垂直軸
+        Debug.Log(h);
         Vector3 MoveDir = new Vector3(h, 0, v);
         MoveDir = MoveDir.normalized;
         MoveDir *= foreSpeed;

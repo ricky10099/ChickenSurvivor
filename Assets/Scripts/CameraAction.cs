@@ -19,6 +19,7 @@ public class CameraAction : MonoBehaviour
     {
         if (!P)
         {
+            P = GameObject.FindGameObjectWithTag("Player");
             return; //プレイヤー不在なら動かさない。
         }
         //カメラの位置。プレイヤー位置から算出する。
