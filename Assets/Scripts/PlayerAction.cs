@@ -8,12 +8,16 @@ public class PlayerAction : MonoBehaviour
     float v; //垂直軸
     Vector3 Dir; //移動方向
     Animator myAnim; //自身のアニメーター
-    [SerializeField] float foreSpeed = 15f; //前進速度
+
+    [SerializeField] float baseSpeed = 15f; //前進速度
     [SerializeField] float rotSpeed = 90.0f; //旋回速度
+    [SerializeField] float runSpeed = 1f;
+
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -33,15 +37,24 @@ public class PlayerAction : MonoBehaviour
             v = Input.GetAxis("Vertical");
         }
 
-        //h = Input.GetAxis("Horizontal"); //入力デバイスの水平軸
-        //v = Input.GetAxis("Vertical"); //入力デバイスの垂直軸
+        #if UNITY_EDITOR
+            h = Mathf.Min(h, 0.5f);
+            h = Mathf.Max(h, -0.5f);
         Debug.Log(h);
+        #endif
+
         Vector3 MoveDir = new Vector3(h, 0, v);
         MoveDir = MoveDir.normalized;
-        MoveDir *= foreSpeed;
-        if(MoveDir != Vector3.zero)
-            Dir = MoveDir;
+
+        if (MoveDir.magnitude > 0.1) { 
+            Dir = MoveDir; 
+        }
+
         transform.forward = Vector3.Slerp(transform.forward, Dir, Time.deltaTime * rotSpeed);
-        transform.localPosition += MoveDir * Time.deltaTime; //キャラクターを移動
+
+        MoveDir.y = -rb.mass;
+        MoveDir = MoveDir * baseSpeed * runSpeed;
+
+        rb.velocity = MoveDir;
     }
 }

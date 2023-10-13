@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraAction : MonoBehaviour
 {
-    [SerializeField] Vector3 OffSet = new Vector3(0f, 1.4f, 0f); //彼女の口元付近
-    [SerializeField] Vector3 CamDir = new Vector3(0f, 13f, -13f); //彼女から見たカメラ方向
+    [SerializeField] Vector3 OffSet = new Vector3(0f, 0f, 0f); 
+    [SerializeField] Vector3 CamDir = new Vector3(0f, 25f, -15f); 
     GameObject P; //プレイヤー
 
     // Start is called before the first frame update
