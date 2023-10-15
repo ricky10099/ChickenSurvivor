@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {    public enum MODE
@@ -11,28 +12,25 @@ public class GameManager : MonoBehaviour
         OVER //ゲームオーバー
     }
     static public MODE GameMode; //ゲームの状態
-
-    [SerializeField] GameObject PlayerPrefab;
-
-
-    NavMeshSurface myNavMesh; //自身のナビメッシュサーフェース
+    static public int WormLevel;
+    //[SerializeField] GameObject PlayerPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        //自身のナビメッシュサーフェースを取得
-        myNavMesh = GetComponent<NavMeshSurface>();
-
-        //CreateMap();
-
-        GameObject M = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
-
         GameMode = MODE.PLAY;
+        WormLevel = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void WormSpeedUp()
+    {
+        Debug.Log("WSP");
+        WormLevel++;
     }
 }

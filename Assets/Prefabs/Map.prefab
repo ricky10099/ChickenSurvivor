@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3591572553924783453}
   - component: {fileID: 3591572553924783455}
   - component: {fileID: 3591572553924783454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,12 +95,12 @@ GameObject:
   - component: {fileID: 3591572551965047851}
   - component: {fileID: 3591572551965047850}
   - component: {fileID: 3591572551965047849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572551965047844
 Transform:
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 3591572553853580406}
   - component: {fileID: 3591572553853580400}
   - component: {fileID: 3591572553853580407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,12 +275,12 @@ GameObject:
   - component: {fileID: 3591572553784727286}
   - component: {fileID: 3591572553784727280}
   - component: {fileID: 3591572553784727287}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572553784727286
 Transform:
@@ -356,12 +356,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591572552093418654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572552093418654
 Transform:
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 3591572553538600280}
   - component: {fileID: 3591572553538600282}
   - component: {fileID: 3591572553538600281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 3591572552263719782}
   - component: {fileID: 3591572552117938395}
   - component: {fileID: 3591572552117938394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,12 +568,12 @@ GameObject:
   - component: {fileID: 3591572553757777776}
   - component: {fileID: 3591572553757777783}
   - component: {fileID: 3591572553757777782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3591572553757777781
 Transform:
@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 3591572552175231594}
   - component: {fileID: 3591572552176789587}
   - component: {fileID: 3591572552176789586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591572552235457991}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -787,12 +787,12 @@ GameObject:
   - component: {fileID: 3591572553096259077}
   - component: {fileID: 3591572553096259079}
   - component: {fileID: 3591572553096259078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572553096259077
 Transform:
@@ -870,12 +870,12 @@ GameObject:
   - component: {fileID: 3591572552270881607}
   - component: {fileID: 3591572552270881601}
   - component: {fileID: 3591572552270881600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flower1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572552270881607
 Transform:
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 3591572552575130916}
   - component: {fileID: 3591572552336953475}
   - component: {fileID: 3591572552336953474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1037,12 +1037,12 @@ GameObject:
   - component: {fileID: 3591572553141343636}
   - component: {fileID: 3591572553141343638}
   - component: {fileID: 3591572553141343637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572553141343636
 Transform:
@@ -1120,7 +1120,7 @@ GameObject:
   - component: {fileID: 3591572553353781053}
   - component: {fileID: 3591572553353781055}
   - component: {fileID: 3591572553353781054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1205,12 +1205,12 @@ GameObject:
   - component: {fileID: 3591572554050442824}
   - component: {fileID: 3591572554050442831}
   - component: {fileID: 1275270707}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3591572554050442830
 Transform:
@@ -1317,12 +1317,12 @@ GameObject:
   - component: {fileID: 3591572552398029874}
   - component: {fileID: 3591572552398029836}
   - component: {fileID: 3591572552398029875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flower2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572552398029874
 Transform:
@@ -1401,7 +1401,7 @@ GameObject:
   - component: {fileID: 3591572552457509316}
   - component: {fileID: 3591572552457509318}
   - component: {fileID: 3591572552457509317}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1484,12 +1484,12 @@ GameObject:
   - component: {fileID: 3591572553248533808}
   - component: {fileID: 3591572553248533810}
   - component: {fileID: 3591572553248533809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572553248533808
 Transform:
@@ -1567,7 +1567,7 @@ GameObject:
   - component: {fileID: 3591572551977007914}
   - component: {fileID: 3591572551977007908}
   - component: {fileID: 3591572551977007915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1650,7 +1650,7 @@ GameObject:
   - component: {fileID: 3591572552686701297}
   - component: {fileID: 3591572552686701299}
   - component: {fileID: 3591572552686701298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock7 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1733,12 +1733,12 @@ GameObject:
   - component: {fileID: 3591572552305941414}
   - component: {fileID: 3591572552305941408}
   - component: {fileID: 3591572552305941415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572552305941414
 Transform:
@@ -1816,12 +1816,12 @@ GameObject:
   - component: {fileID: 3591572552620950380}
   - component: {fileID: 3591572552620950382}
   - component: {fileID: 3591572552620950381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flower2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572552620950380
 Transform:
@@ -1900,7 +1900,7 @@ GameObject:
   - component: {fileID: 3591572552086309351}
   - component: {fileID: 3591572552086309345}
   - component: {fileID: 3591572552086309344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1984,12 +1984,13 @@ GameObject:
   - component: {fileID: 3591572552685263665}
   - component: {fileID: 3591572552685263664}
   - component: {fileID: 3591572552685263671}
-  m_Layer: 0
+  - component: {fileID: 2014915724}
+  m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572552685263670
 Transform:
@@ -2069,6 +2070,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &2014915724
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591572552685263669}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3591572552686832584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,7 +2097,7 @@ GameObject:
   - component: {fileID: 3591572552644391157}
   - component: {fileID: 3591572552686832586}
   - component: {fileID: 3591572552686832585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2163,7 +2180,7 @@ GameObject:
   - component: {fileID: 3591572552175878006}
   - component: {fileID: 3591572552175878000}
   - component: {fileID: 3591572552175878007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock7 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2246,7 +2263,7 @@ GameObject:
   - component: {fileID: 3591572553310189087}
   - component: {fileID: 3591572553310189081}
   - component: {fileID: 3591572553310189080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2327,12 +2344,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591572552738593881}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572552738593881
 Transform:
@@ -2364,7 +2381,7 @@ GameObject:
   - component: {fileID: 3591572553819912759}
   - component: {fileID: 3591572553819912753}
   - component: {fileID: 3591572553819912752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2447,7 +2464,7 @@ GameObject:
   - component: {fileID: 3591572554090581087}
   - component: {fileID: 3591572554090581081}
   - component: {fileID: 3591572554090581080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2531,12 +2548,13 @@ GameObject:
   - component: {fileID: 3591572552841371222}
   - component: {fileID: 3591572552841371221}
   - component: {fileID: 3591572552841371220}
-  m_Layer: 0
+  - component: {fileID: 1292293585}
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572552841371227
 Transform:
@@ -2616,6 +2634,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &1292293585
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591572552841371226}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3591572552866928669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,7 +2661,7 @@ GameObject:
   - component: {fileID: 3591572554023483076}
   - component: {fileID: 3591572554023483078}
   - component: {fileID: 3591572554023483077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock7 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2710,7 +2744,7 @@ GameObject:
   - component: {fileID: 3591572553517067225}
   - component: {fileID: 3591572553517067227}
   - component: {fileID: 3591572553517067226}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2794,12 +2828,12 @@ GameObject:
   - component: {fileID: 3591572552886449436}
   - component: {fileID: 3591572552886449411}
   - component: {fileID: 3591572552886449410}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572552886449409
 Transform:
@@ -7680,12 +7714,14 @@ GameObject:
   - component: {fileID: 3591572553157867362}
   - component: {fileID: 3591572553157867388}
   - component: {fileID: 3591572553157867363}
-  m_Layer: 0
+  - component: {fileID: 1274624398}
+  - component: {fileID: 1274624402}
+  m_Layer: 6
   m_Name: CampFire
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3591572553157867362
 Transform:
@@ -7753,6 +7789,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1274624398
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591572552924682029}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!208 &1274624402
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591572552924682029}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.54300004, y: 0.23300001, z: 0.432}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.07, y: 0.22600001, z: 0.017}
+  m_TimeToStationary: 0.5
 --- !u!1 &3591572552931092623
 GameObject:
   m_ObjectHideFlags: 0
@@ -7764,7 +7830,7 @@ GameObject:
   - component: {fileID: 3591572553586389216}
   - component: {fileID: 3591572553586389218}
   - component: {fileID: 3591572553586389217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7848,12 +7914,12 @@ GameObject:
   - component: {fileID: 3591572552933454859}
   - component: {fileID: 3591572552933454858}
   - component: {fileID: 3591572552933454857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572552933454856
 Transform:
@@ -7943,12 +8009,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591572552972008147}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572552972008147
 Transform:
@@ -7981,12 +8047,13 @@ GameObject:
   - component: {fileID: 3591572552994831166}
   - component: {fileID: 3591572552994831165}
   - component: {fileID: 3591572552994831164}
-  m_Layer: 0
+  - component: {fileID: 708721154}
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572552994831139
 Transform:
@@ -8066,6 +8133,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &708721154
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591572552994831138}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3591572553047319625
 GameObject:
   m_ObjectHideFlags: 0
@@ -8077,7 +8160,7 @@ GameObject:
   - component: {fileID: 3591572553183750598}
   - component: {fileID: 3591572553183750592}
   - component: {fileID: 3591572553183750599}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8160,7 +8243,7 @@ GameObject:
   - component: {fileID: 3591572553007445294}
   - component: {fileID: 3591572553054115079}
   - component: {fileID: 3591572553054115078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8244,12 +8327,13 @@ GameObject:
   - component: {fileID: 3591572553058870082}
   - component: {fileID: 3591572553058870081}
   - component: {fileID: 3591572553058870080}
-  m_Layer: 0
+  - component: {fileID: 1600502309}
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572553058870087
 Transform:
@@ -8329,6 +8413,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &1600502309
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591572553058870086}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3591572553091463958
 GameObject:
   m_ObjectHideFlags: 0
@@ -8340,7 +8440,7 @@ GameObject:
   - component: {fileID: 3591572552511846372}
   - component: {fileID: 3591572553091463952}
   - component: {fileID: 3591572553091463959}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8423,7 +8523,7 @@ GameObject:
   - component: {fileID: 3591572553090538497}
   - component: {fileID: 3591572553094164003}
   - component: {fileID: 3591572553094164002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8506,12 +8606,12 @@ GameObject:
   - component: {fileID: 3591572553306472838}
   - component: {fileID: 3591572553098009775}
   - component: {fileID: 3591572553098009774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572553306472838
 Transform:
@@ -8589,12 +8689,12 @@ GameObject:
   - component: {fileID: 3591572553100453344}
   - component: {fileID: 3591572553100453346}
   - component: {fileID: 3591572553100453345}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flower2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572553100453344
 Transform:
@@ -8673,7 +8773,7 @@ GameObject:
   - component: {fileID: 3591572553046722621}
   - component: {fileID: 3591572553046722623}
   - component: {fileID: 3591572553046722622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8758,12 +8858,12 @@ GameObject:
   - component: {fileID: 3591572553305099583}
   - component: {fileID: 3591572553305099582}
   - component: {fileID: 414151129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3591572553000837119
 Transform:
@@ -8868,12 +8968,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591572553315990639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572553315990639
 Transform:
@@ -8914,7 +9014,7 @@ GameObject:
   - component: {fileID: 3591572553675066033}
   - component: {fileID: 3591572553355776012}
   - component: {fileID: 3591572553355776051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8997,12 +9097,12 @@ GameObject:
   - component: {fileID: 3591572551949818356}
   - component: {fileID: 3591572553470526468}
   - component: {fileID: 3591572553470526475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572551949818356
 Transform:
@@ -9078,12 +9178,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591572553567566560}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572553567566560
 Transform:
@@ -9120,7 +9220,7 @@ GameObject:
   - component: {fileID: 3591572553410141249}
   - component: {fileID: 3591572553410141251}
   - component: {fileID: 3591572553410141250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9205,12 +9305,12 @@ GameObject:
   - component: {fileID: 3591572553630208552}
   - component: {fileID: 3591572553630208559}
   - component: {fileID: 395135866}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3591572554072575205
 Transform:
@@ -9317,7 +9417,7 @@ GameObject:
   - component: {fileID: 3591572554092846887}
   - component: {fileID: 3591572553655699082}
   - component: {fileID: 3591572553655699081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9400,7 +9500,7 @@ GameObject:
   - component: {fileID: 3591572552499364560}
   - component: {fileID: 3591572553670476765}
   - component: {fileID: 3591572553670476764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9481,12 +9581,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591572553675625262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572553675625262
 Transform:
@@ -9523,12 +9623,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591572553688610954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572553688610954
 Transform:
@@ -9565,7 +9665,7 @@ GameObject:
   - component: {fileID: 3591572552944039611}
   - component: {fileID: 3591572553724353149}
   - component: {fileID: 3591572553724353148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9648,7 +9748,7 @@ GameObject:
   - component: {fileID: 3591572552175932197}
   - component: {fileID: 3591572553742081926}
   - component: {fileID: 3591572553742081925}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9731,7 +9831,7 @@ GameObject:
   - component: {fileID: 3591572553227015702}
   - component: {fileID: 3591572553227015696}
   - component: {fileID: 3591572553227015703}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock7 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9814,12 +9914,12 @@ GameObject:
   - component: {fileID: 3591572553787281800}
   - component: {fileID: 3591572553787281802}
   - component: {fileID: 3591572553787281801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flower1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572553787281800
 Transform:
@@ -9898,12 +9998,12 @@ GameObject:
   - component: {fileID: 3591572552342554333}
   - component: {fileID: 3591572553802763292}
   - component: {fileID: 3591572553802763267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572552342554333
 Transform:
@@ -9979,12 +10079,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591572553803839849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rocks (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572553803839849
 Transform:
@@ -10021,7 +10121,7 @@ GameObject:
   - component: {fileID: 3591572553938693687}
   - component: {fileID: 3591572553814428103}
   - component: {fileID: 3591572553814428102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10105,12 +10205,12 @@ GameObject:
   - component: {fileID: 3591572553850693751}
   - component: {fileID: 3591572553850693750}
   - component: {fileID: 3591572553850693749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3591572553850693748
 Transform:
@@ -10202,7 +10302,7 @@ GameObject:
   - component: {fileID: 3591572552248950546}
   - component: {fileID: 3591572553851239643}
   - component: {fileID: 3591572553851239642}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10285,12 +10385,12 @@ GameObject:
   - component: {fileID: 3591572553321268692}
   - component: {fileID: 3591572553321268694}
   - component: {fileID: 3591572553321268693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572553321268692
 Transform:
@@ -10369,12 +10469,14 @@ GameObject:
   - component: {fileID: 3591572553957725545}
   - component: {fileID: 3591572553957725544}
   - component: {fileID: 3591572553957725548}
-  m_Layer: 0
+  - component: {fileID: 813094578}
+  - component: {fileID: 813094577}
+  m_Layer: 6
   m_Name: Tent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3591572553957725551
 Transform:
@@ -10455,6 +10557,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.905256, y: 1.5000005, z: 3}
   m_Center: {x: -0.00000020861626, y: 0.7500001, z: 1.2434498e-14}
+--- !u!65 &813094578
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591572553957725459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1, z: 2.7}
+  m_Center: {x: -0.00000020861626, y: 0.54, z: 1.2434498e-14}
+--- !u!208 &813094577
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591572553957725459}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.95300007, y: 0.75000006, z: 1.5000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.75000006, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3591572553960331210
 GameObject:
   m_ObjectHideFlags: 0
@@ -10466,12 +10597,12 @@ GameObject:
   - component: {fileID: 3591572552648231450}
   - component: {fileID: 3591572553960331204}
   - component: {fileID: 3591572553960331211}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572552648231450
 Transform:
@@ -10551,12 +10682,12 @@ GameObject:
   - component: {fileID: 3591572553970241635}
   - component: {fileID: 3591572553970241634}
   - component: {fileID: 1520528524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3591572552087223160
 Transform:
@@ -10663,12 +10794,12 @@ GameObject:
   - component: {fileID: 3591572551994760612}
   - component: {fileID: 3591572553970260286}
   - component: {fileID: 3591572553970260285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572551994760612
 Transform:
@@ -10746,12 +10877,12 @@ GameObject:
   - component: {fileID: 3591572552977565039}
   - component: {fileID: 3591572553987685681}
   - component: {fileID: 3591572553987685680}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3591572552977565039
 Transform:
@@ -10830,7 +10961,7 @@ GameObject:
   - component: {fileID: 3591572553108763805}
   - component: {fileID: 3591572553108763804}
   - component: {fileID: 3591572553108763779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10928,12 +11059,12 @@ GameObject:
   - component: {fileID: 3591572554028557681}
   - component: {fileID: 3591572554028557680}
   - component: {fileID: 3591572554028557687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoodBoat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3591572552749100584
 Transform:
@@ -11081,6 +11212,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flower1
       objectReference: {fileID: 0}
+    - target: {fileID: 2594766243793620232, guid: 4d1f930728eb81f499eefd1f6d4db221, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594766243793620232, guid: 4d1f930728eb81f499eefd1f6d4db221, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d1f930728eb81f499eefd1f6d4db221, type: 3}
 --- !u!4 &1573341850230455184 stripped
@@ -11098,6 +11237,14 @@ PrefabInstance:
     - target: {fileID: 2464754855653894261, guid: d7375139d18121f4daae96053a84e4c9, type: 3}
       propertyPath: m_Name
       value: Flower2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464754855653894261, guid: d7375139d18121f4daae96053a84e4c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464754855653894261, guid: d7375139d18121f4daae96053a84e4c9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2464754855653995605, guid: d7375139d18121f4daae96053a84e4c9, type: 3}
       propertyPath: m_RootOrder
@@ -11229,8 +11376,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeStump
       objectReference: {fileID: 0}
+    - target: {fileID: 4114348814130154171, guid: c185f4228ecc7b14cb47ae816197d6b4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114348814130154171, guid: c185f4228ecc7b14cb47ae816197d6b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c185f4228ecc7b14cb47ae816197d6b4, type: 3}
+--- !u!1 &634671405819684476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4114348814130154171, guid: c185f4228ecc7b14cb47ae816197d6b4, type: 3}
+  m_PrefabInstance: {fileID: 3591572553841110215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &2077018374
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634671405819684476}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.384, y: 0.193, z: 0.37500003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.0050000004, y: 0.186, z: 0.009000001}
+  m_TimeToStationary: 0.5
 --- !u!4 &634671405819853404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4114348814129731227, guid: c185f4228ecc7b14cb47ae816197d6b4, type: 3}
@@ -11246,6 +11422,14 @@ PrefabInstance:
     - target: {fileID: 1025681519537117646, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
       propertyPath: m_Name
       value: WoodFence1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025681519537117646, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025681519537117646, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1025681519537473006, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
       propertyPath: m_RootOrder
@@ -11310,3 +11494,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1025681519537473006, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
   m_PrefabInstance: {fileID: 3591572553850145164}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4606100349335801922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1025681519537117646, guid: aa99a810914c5b84b9bc5d51f95dd05c, type: 3}
+  m_PrefabInstance: {fileID: 3591572553850145164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &1046137702
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606100349335801922}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.1, y: 0.5, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
+  m_TimeToStationary: 0.5

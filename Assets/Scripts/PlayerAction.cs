@@ -1,21 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAction : MonoBehaviour
 {
-
-    [SerializeField] float baseSpeed = 15f; //前進速度
+    [SerializeField] float walkSpeed = 15f; //前進速度
     [SerializeField] float rotSpeed = 90.0f; //旋回速度
-    [SerializeField] float runSpeed = 1f;
+    [SerializeField] float runSpeed = 30f;
+    [SerializeField] Button runButton;
 
     Vector3 Dir; //移動方向
     Animator anim; //自身のアニメーター
     Rigidbody rb;
     BoxCollider headCollider;
+    float runGauge = 100;
 
     bool isAttack;
     bool isStun;
+    bool isRun;
+    bool isRecoverStemina;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +35,17 @@ public class PlayerAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        runGauge = Math.Max(0, runGauge);
+        if(runGauge <= 0)
+        {
+            Walk();
+        }
+
+        if(runGauge >= 100 || isRun)
+        {
+            isRecoverStemina = false;
+        }
+
         if (isStun)
         {
             return;
@@ -45,6 +62,13 @@ public class PlayerAction : MonoBehaviour
         }
 
         Movement();
+
+        if (isRecoverStemina)
+        {
+            runGauge += 30 * Time.deltaTime;
+        }
+
+        runButton.image.fillAmount = runGauge / 100;
     }
 
     void Movement()
@@ -73,14 +97,14 @@ public class PlayerAction : MonoBehaviour
         h = Mathf.Max(h, -0.5f);
 #endif
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            runSpeed = 2;
-        }
-        else
-        {
-            runSpeed = 1;
-        }
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    Run();
+        //}
+        ////else
+        ////{
+        ////    Walk();
+        ////}
 
         Vector3 MoveDir = new Vector3(h, 0, v);
         MoveDir = MoveDir.normalized;
@@ -89,8 +113,14 @@ public class PlayerAction : MonoBehaviour
         {
             Dir = MoveDir;
         }
+        //Debug.Log(isRun ? runSpeed : walkSpeed);
+        //Debug.Log(runSpeed);
+        MoveDir = MoveDir * (isRun? runSpeed : walkSpeed);
+        if(MoveDir.magnitude > 0 && isRun)
+        {
+            runGauge -= 70 * Time.deltaTime;
+        }
 
-        MoveDir = MoveDir * baseSpeed * runSpeed;
         anim.SetFloat("Speed", MoveDir.magnitude);
         if (Dir != Vector3.zero)
         {
@@ -106,12 +136,27 @@ public class PlayerAction : MonoBehaviour
         {
             if (!isStun)
             {
-                Stun(20);
+                Stun((isRun ? (runSpeed * 1.1f): (walkSpeed * 1.2f)) );
             }
         }
     }
 
-    void Eat()
+    public void Run()
+    {
+        if (runGauge > 0)
+        {
+            isRun = true;
+            isRecoverStemina = false;
+        }
+    }
+
+    public void Walk()
+    {
+        isRun = false;
+        Invoke("RecoverStemina", 0.5f);
+    }
+
+    public void Eat()
     {
         anim.SetTrigger("Attack");
         anim.SetFloat("Speed", 0);
@@ -143,5 +188,10 @@ public class PlayerAction : MonoBehaviour
     void Recover()
     {
         isStun = false;
+    }
+
+    void RecoverStemina()
+    {
+        isRecoverStemina = true;
     }
 }
