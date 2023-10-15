@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,26 +6,21 @@ using UnityEngine.AI;
 public class GameManager : MonoBehaviour
 {    public enum MODE
     {
-        TITLE, //ƒ^ƒCƒgƒ‹
-        PLAY, //ƒvƒŒƒC’†
-        OVER //ƒQ[ƒ€ƒI[ƒo[
+        TITLE, //ã‚¿ã‚¤ãƒˆãƒ«
+        PLAY, //ãƒ—ãƒ¬ã‚¤ä¸­
+        OVER //ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼
     }
-    static public MODE GameMode; //ƒQ[ƒ€‚Ìó‘Ô
+    static public MODE GameMode; //ã‚²ãƒ¼ãƒ ã®çŠ¶æ…‹
 
-    //int[,] map;
-    //[SerializeField] GameObject GroundPrefab;
-    //[SerializeField] GameObject WallPrefab;
-    //[SerializeField] GameObject WallColliderPrefab;
     [SerializeField] GameObject PlayerPrefab;
 
-    [SerializeField] int MapSize;
 
-    NavMeshSurface myNavMesh; //©g‚ÌƒiƒrƒƒbƒVƒ…ƒT[ƒtƒF[ƒX
+    NavMeshSurface myNavMesh; //è‡ªèº«ã®ãƒŠãƒ“ãƒ¡ãƒƒã‚·ãƒ¥ã‚µãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
 
     // Start is called before the first frame update
     void Start()
     {
-        //©g‚ÌƒiƒrƒƒbƒVƒ…ƒT[ƒtƒF[ƒX‚ğæ“¾
+        //è‡ªèº«ã®ãƒŠãƒ“ãƒ¡ãƒƒã‚·ãƒ¥ã‚µãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å–å¾—
         myNavMesh = GetComponent<NavMeshSurface>();
 
         //CreateMap();
@@ -34,54 +29,6 @@ public class GameManager : MonoBehaviour
 
         GameMode = MODE.PLAY;
     }
-
-    //void CreateMap()
-    //{
-    //    WallPrefab.transform.localScale = new Vector3(2.0f, 0.7f, 1.1f);
-
-    //    map = new int[MapSize, MapSize];
-    //    float height = -2.5f;
-
-    //    for (int i = 0; i < MapSize; i++)
-    //    {
-    //        for (int j = 0; j < MapSize; j++)
-    //        {
-    //            if (i == 0 || j == 0 || i == MapSize - 1 || j == MapSize - 1)
-    //            {
-    //                map[i, j] = 0;
-    //            }
-    //            else
-    //            {
-    //                map[i, j] = 1;
-    //            }
-    //            SpawnGround(i - MapSize * 0.5f, height, j - MapSize * 0.5f, map[i, j]);
-    //        }
-    //    }
-    //    float colliderLength = MapSize + 20;
-    //    WallColliderPrefab.transform.localScale = new Vector3(colliderLength, 20, 2);
-    //    Instantiate(WallColliderPrefab, new Vector3(0, height, (MapSize * 0.5f) - 1), Quaternion.Euler(0, 0, 0));
-    //    Instantiate(WallColliderPrefab, new Vector3((MapSize * 0.5f) - 1, height, 0), Quaternion.Euler(0, 90, 0));
-    //    Instantiate(WallColliderPrefab, new Vector3(0, height, (-MapSize * 0.5f)), Quaternion.Euler(0, 0, 0));
-    //    Instantiate(WallColliderPrefab, new Vector3((-MapSize * 0.5f), height, 0), Quaternion.Euler(0, 90, 0));
-
-    //    //°‚ª—pˆÓ‚Å‚«‚½‚Ì‚ÅƒiƒrƒƒbƒVƒ…–ÊÏ‚ğŒvZ
-    //    myNavMesh.BuildNavMesh();
-    //}
-
-    //void SpawnGround(float x, float y, float z, int ID)
-    //{
-    //    Vector3 Pos = new Vector3(x, y, z); 
- 
-    //    if ( ID == 1 ) 
-    //    {
-    //        GameObject ground = Instantiate(GroundPrefab, Pos, Quaternion.identity); 
-    //        ground.transform.parent = transform;//°‚Ìe‚ğƒ}ƒl[ƒWƒƒ[‚É
-    //    }
-    //    else if(ID == 0)
-    //    {
-    //        GameObject wallObj = Instantiate(WallPrefab, Pos, Quaternion.Euler(0, 180, 0)); 
-    //    }
-    //}
 
     // Update is called once per frame
     void Update()

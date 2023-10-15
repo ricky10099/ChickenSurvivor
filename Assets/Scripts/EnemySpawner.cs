@@ -1,34 +1,34 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject EnemyPrefab; //ƒƒeƒIƒvƒŒƒnƒu
-    [SerializeField] float MaxRadius = 10.0f; //¶¬”¼Œa
-    [SerializeField] float IntervalBias = 0.99f; //¶¬ŠÔŠuŒW”
-    [SerializeField] float SpeedBias = 0.1f; //‘¬“xŒW”
-    [SerializeField] float InitInterval = 3.0f; //‰Šú¶¬ŠÔŠu
-    [SerializeField] float InitSpeed = 5.0f; //‰Šú‘¬“x
-    float Speed; //‘¬“x
-    float Interval; //¶¬ŠÔŠu
-    float Elapsed; //Œo‰ßŠÔ
+    [SerializeField] GameObject EnemyPrefab; //ãƒ¡ãƒ†ã‚ªãƒ—ãƒ¬ãƒãƒ–
+    [SerializeField] float MaxRadius = 10.0f; //ç”ŸæˆåŠå¾„
+    [SerializeField] float IntervalBias = 0.99f; //ç”Ÿæˆé–“éš”ä¿‚æ•°
+    [SerializeField] float SpeedBias = 0.1f; //é€Ÿåº¦ä¿‚æ•°
+    [SerializeField] float InitInterval = 3.0f; //åˆæœŸç”Ÿæˆé–“éš”
+    [SerializeField] float InitSpeed = 5.0f; //åˆæœŸé€Ÿåº¦
+    float Speed; //é€Ÿåº¦
+    float Interval; //ç”Ÿæˆé–“éš”
+    float Elapsed; //çµŒéæ™‚é–“
 
     GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        Ready(); //€”õˆ—
+        Ready(); //æº–å‚™å‡¦ç†
     }
 
-    //€”õˆ—
+    //æº–å‚™å‡¦ç†
     void Ready()
     {
         Elapsed = 0.0f;
         Interval = InitInterval;
         Speed = InitSpeed;
-        //‘OƒvƒŒƒC‚Å‚ÌƒƒeƒI‚ªc‚Á‚Ä‚¢‚ê‚Î“P‹
+        //å‰ãƒ—ãƒ¬ã‚¤ã§ã®ãƒ¡ãƒ†ã‚ªãŒæ®‹ã£ã¦ã„ã‚Œã°æ’¤å»
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject Stored in Enemies)
         {
@@ -47,19 +47,19 @@ public class EnemySpawner : MonoBehaviour
             if (Elapsed > Interval)
             {
                 Debug.Log("SpawnEnemy");
-                //¶¬ˆÊ’u‚ğ‹‚ß‚é
+                //ç”Ÿæˆä½ç½®ã‚’æ±‚ã‚ã‚‹
                 Vector3 Pos = player.transform.position;
                 float Theta = Random.Range(0, Mathf.PI * 2.0f);
                 float Radius = Random.Range(3, MaxRadius);
                 Pos.x += Mathf.Cos(Theta) * Radius;
                 Pos.z += Mathf.Sin(Theta) * Radius;
                 Pos.y = 2.5f;
-                //“G‚ğ¶¬
+                //æ•µã‚’ç”Ÿæˆ
                 GameObject M = Instantiate(EnemyPrefab, Pos, Quaternion.identity);
-                //¶¬ˆÊ’u‚Ì‹tƒxƒNƒgƒ‹‚ğis•ûŒü‚Æ‚µ‚Ä—^‚¦‚é
+                //ç”Ÿæˆä½ç½®ã®é€†ãƒ™ã‚¯ãƒˆãƒ«ã‚’é€²è¡Œæ–¹å‘ã¨ã—ã¦ä¸ãˆã‚‹
                 //M.GetComponent<Rigidbody>().velocity = -M.transform.position.normalized * Speed;
-                Interval *= IntervalBias; //Ÿ‚Ì¶¬ŠÔŠu‚ğ’Z‚­‚·‚é
-                Speed += SpeedBias;//Ÿ‚Ì‘¬“x‚ğã‚°‚é
+                Interval *= IntervalBias; //æ¬¡ã®ç”Ÿæˆé–“éš”ã‚’çŸ­ãã™ã‚‹
+                Speed += SpeedBias;//æ¬¡ã®é€Ÿåº¦ã‚’ä¸Šã’ã‚‹
                 Elapsed = 0.0f;
             }
         }

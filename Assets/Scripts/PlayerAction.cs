@@ -1,28 +1,59 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
-    float h; //…•½²
-    float v; //‚’¼²
-    Vector3 Dir; //ˆÚ“®•ûŒü
-    Animator myAnim; //©g‚ÌƒAƒjƒ[ƒ^[
 
-    [SerializeField] float baseSpeed = 15f; //‘Oi‘¬“x
-    [SerializeField] float rotSpeed = 90.0f; //ù‰ñ‘¬“x
+    [SerializeField] float baseSpeed = 15f; //å‰é€²é€Ÿåº¦
+    [SerializeField] float rotSpeed = 90.0f; //æ—‹å›é€Ÿåº¦
     [SerializeField] float runSpeed = 1f;
 
+    Vector3 Dir; //ç§»å‹•æ–¹å‘
+    Animator anim; //è‡ªèº«ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚¿ãƒ¼
     Rigidbody rb;
+    BoxCollider headCollider;
+
+    bool isAttack;
+    bool isStun;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb =  GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>(); //è‡ªèº«ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚¿ãƒ¼ã‚’å–å¾—
+        headCollider = GetComponentInChildren<BoxCollider>(true);
+        isAttack = false;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        if (isStun)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Stun(10);
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Eat();
+        }
+
+        Movement();
+    }
+
+    void Movement()
+    {
+        if (isAttack)
+        {
+            return;
+        }
+
         float v;
         float h;
         if (Application.platform == RuntimePlatform.IPhonePlayer)
@@ -37,24 +68,80 @@ public class PlayerAction : MonoBehaviour
             v = Input.GetAxis("Vertical");
         }
 
-        #if UNITY_EDITOR
-            h = Mathf.Min(h, 0.5f);
-            h = Mathf.Max(h, -0.5f);
-        Debug.Log(h);
-        #endif
+#if UNITY_EDITOR
+        h = Mathf.Min(h, 0.5f);
+        h = Mathf.Max(h, -0.5f);
+#endif
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            runSpeed = 2;
+        }
+        else
+        {
+            runSpeed = 1;
+        }
 
         Vector3 MoveDir = new Vector3(h, 0, v);
         MoveDir = MoveDir.normalized;
 
-        if (MoveDir.magnitude > 0.1) { 
-            Dir = MoveDir; 
+        if (MoveDir.magnitude > 0.1)
+        {
+            Dir = MoveDir;
         }
 
-        transform.forward = Vector3.Slerp(transform.forward, Dir, Time.deltaTime * rotSpeed);
-
-        MoveDir.y = -rb.mass;
         MoveDir = MoveDir * baseSpeed * runSpeed;
-
+        anim.SetFloat("Speed", MoveDir.magnitude);
+        if (Dir != Vector3.zero)
+        {
+            transform.forward = Vector3.Slerp(transform.forward, Dir, Time.deltaTime * rotSpeed);
+        }
+        MoveDir.y = -rb.mass;
         rb.velocity = MoveDir;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Fire")
+        {
+            if (!isStun)
+            {
+                Stun(20);
+            }
+        }
+    }
+
+    void Eat()
+    {
+        anim.SetTrigger("Attack");
+        anim.SetFloat("Speed", 0);
+        isAttack = true;
+        rb.velocity = Vector3.zero;
+        Invoke("Eating", 0.13f);
+    }
+
+    void Eating()
+    {
+        headCollider.enabled = true;
+    }
+
+    void FinishEat()
+    {
+        isAttack = false;
+        headCollider.enabled = false;
+        //headCollider.
+    }
+
+    void Stun(float force)
+    {
+        rb.AddForce(-transform.forward * force, ForceMode.VelocityChange);
+        isStun = true;
+        anim.SetFloat("Speed", 0);
+        anim.SetTrigger("Stun");
+    }
+
+    void Recover()
+    {
+        isStun = false;
     }
 }

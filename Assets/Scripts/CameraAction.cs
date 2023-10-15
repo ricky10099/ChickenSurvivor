@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class CameraAction : MonoBehaviour
 {
     [SerializeField] Vector3 OffSet = new Vector3(0f, 0f, 0f); 
     [SerializeField] Vector3 CamDir = new Vector3(0f, 25f, -15f); 
-    GameObject P; //ƒvƒŒƒCƒ„[
+    GameObject P; //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +20,11 @@ public class CameraAction : MonoBehaviour
         if (!P)
         {
             P = GameObject.FindGameObjectWithTag("Player");
-            return; //ƒvƒŒƒCƒ„[•sİ‚È‚ç“®‚©‚³‚È‚¢B
+            return; //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ä¸åœ¨ãªã‚‰å‹•ã‹ã•ãªã„ã€‚
         }
-        //ƒJƒƒ‰‚ÌˆÊ’uBƒvƒŒƒCƒ„[ˆÊ’u‚©‚çZo‚·‚éB
+        //ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã€‚ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ä½ç½®ã‹ã‚‰ç®—å‡ºã™ã‚‹ã€‚
         transform.position = P.transform.position + CamDir;
-        //ƒJƒƒ‰‚Ì‰ñ“]B’‹“_‚ÍƒvƒŒƒCƒ„[‚Ì­‚µã‚ğŒ©‚éB
+        //ã‚«ãƒ¡ãƒ©ã®å›è»¢ã€‚æ³¨è¦–ç‚¹ã¯ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å°‘ã—ä¸Šã‚’è¦‹ã‚‹ã€‚
         transform.LookAt(P.transform.position + OffSet);
     }
 }
