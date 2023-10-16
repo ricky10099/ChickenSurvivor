@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     float Interval; //生成間隔
     float Elapsed; //経過時間
-    [SerializeField] int maxEnemy = 30;
+    //[SerializeField] int maxEnemy = 30;
     int currEnemy;
     GameObject player;
 
@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         if (GameManager.GameMode == GameManager.MODE.PLAY)
         {
             Elapsed += Time.deltaTime;
-            if (Elapsed > Interval && currEnemy < maxEnemy)
+            if (Elapsed > Interval && currEnemy < GameManager.maxWorm)
             {
                 //Debug.Log("SpawnEnemy");
                 //生成位置を求める

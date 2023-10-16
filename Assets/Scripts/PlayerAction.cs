@@ -35,6 +35,11 @@ public class PlayerAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.GameMode != GameManager.MODE.PLAY)
+        {
+            return;
+        }
+
         runGauge = Math.Max(0, runGauge);
         if(runGauge <= 0)
         {
@@ -91,20 +96,6 @@ public class PlayerAction : MonoBehaviour
             h = Input.GetAxis("Horizontal");
             v = Input.GetAxis("Vertical");
         }
-
-#if UNITY_EDITOR
-        h = Mathf.Min(h, 0.5f);
-        h = Mathf.Max(h, -0.5f);
-#endif
-
-        //if (Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    Run();
-        //}
-        ////else
-        ////{
-        ////    Walk();
-        ////}
 
         Vector3 MoveDir = new Vector3(h, 0, v);
         MoveDir = MoveDir.normalized;
