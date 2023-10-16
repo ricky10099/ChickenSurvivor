@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class WormAction : MonoBehaviour
 {
+    [SerializeField]GameObject starEffect;
+    [SerializeField]GameObject model;
+
     NavMeshAgent agent;
     GameObject player;
     GameObject gameManager;
@@ -22,24 +26,32 @@ public class WormAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        
-        if(distance < 10)
+        switch (GameManager.GameMode)
         {
-            Vector3 dir = transform.position - player.transform.position;
+            case GameManager.MODE.PLAY:
+                float distance = Vector3.Distance(transform.position, player.transform.position);
 
-            Vector3 newPos = transform.position + dir;
-            agent.speed = baseSpeed * GameManager.WormLevel;
-            agent.SetDestination(newPos);
+                if (distance < 10)
+                {
+                    Vector3 dir = transform.position - player.transform.position;
+
+                    Vector3 newPos = transform.position + dir;
+                    agent.speed = baseSpeed * GameManager.WormLevel;
+                    agent.SetDestination(newPos);
+                }
+                break;
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Head")
         {
-            Destroy(gameObject);
-            gameManager.SendMessage("WormSpeedUp", SendMessageOptions.DontRequireReceiver);
+            starEffect.SetActive(true);
+            model.SetActive(false);
+            //Destroy(gameObject);
+            gameManager.SendMessage("WormEaten", SendMessageOptions.DontRequireReceiver);
         }
 
         if (other.name == "Tent")
@@ -59,4 +71,9 @@ public class WormAction : MonoBehaviour
         }
     }
 
+    public void ResetObject()
+    {
+        starEffect.SetActive(false);
+        model.SetActive(true);
+    }
 }

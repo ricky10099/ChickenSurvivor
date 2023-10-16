@@ -19,7 +19,8 @@ public class ScaleMask : MonoBehaviour
         RaycastHit hit;
         //Debug.DrawRay(Camera.main.transform.position + raycastOriginOffset,
         //    transform.parent.gameObject.transform.position + raycastTargetOffset - Camera.main.transform.position + raycastOriginOffset, Color.red);
-        if(Physics.Raycast(Camera.main.transform.position + raycastOriginOffset,
+        if(GameManager.GameMode == GameManager.MODE.PLAY && 
+            Physics.Raycast(Camera.main.transform.position + raycastOriginOffset,
             (transform.parent.gameObject.transform.position + raycastTargetOffset - Camera.main.transform.position), 
             out hit, Mathf.Infinity))
         {

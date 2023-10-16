@@ -12,11 +12,14 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] float runSpeed = 30f;
     [SerializeField] Button runButton;
 
-    Vector3 Dir; //移動方向
+    Vector3 titlePos = new Vector3(0, 0, -22);
+    Vector3 titleDir = new Vector3(0, 141, 0);
+    Vector3 dir; //移動方向
     Animator anim; //自身のアニメーター
     Rigidbody rb;
     BoxCollider headCollider;
     float runGauge = 100;
+    float elapsed = 0;
 
     bool isAttack;
     bool isStun;
@@ -30,23 +33,59 @@ public class PlayerAction : MonoBehaviour
         anim = GetComponentInChildren<Animator>(); //自身のアニメーターを取得
         headCollider = GetComponentInChildren<BoxCollider>(true);
         isAttack = false;
+        anim.SetBool("isTitle", true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.GameMode != GameManager.MODE.PLAY)
+        switch (GameManager.GameMode)
         {
-            return;
+            
+            case GameManager.MODE.TITLE:
+                SetTitle();
+                break;
+            case GameManager.MODE.OVER:
+                FinishGame();
+                break;
+            case GameManager.MODE.TITLE_TO_PLAY:
+                ReadyAction();
+                break;
+            case GameManager.MODE.PLAY:
+                PlayModeAction();
+                break;
         }
+        
+    }
 
+    void FinishGame()
+    {
+        anim.SetBool("isTitle", true);
+        elapsed = 0;
+    }
+
+    public void SetTitle()
+    {
+        transform.position = titlePos;
+        transform.rotation = Quaternion.Euler(titleDir);
+    }
+
+    void ReadyAction()
+    {
+        elapsed += Time.deltaTime;
+        anim.SetBool("isTitle", false);
+        transform.forward = Vector3.Slerp(transform.forward, new Vector3(0, 0, 1), elapsed / 1);
+    }
+
+    void PlayModeAction()
+    {
         runGauge = Math.Max(0, runGauge);
-        if(runGauge <= 0)
+        if (runGauge <= 0)
         {
             Walk();
         }
 
-        if(runGauge >= 100 || isRun)
+        if (runGauge >= 100 || isRun)
         {
             isRecoverStemina = false;
         }
@@ -97,28 +136,28 @@ public class PlayerAction : MonoBehaviour
             v = Input.GetAxis("Vertical");
         }
 
-        Vector3 MoveDir = new Vector3(h, 0, v);
-        MoveDir = MoveDir.normalized;
+        Vector3 moveDir = new Vector3(h, 0, v);
+        moveDir = moveDir.normalized;
 
-        if (MoveDir.magnitude > 0.1)
+        if (moveDir.magnitude > 0.1)
         {
-            Dir = MoveDir;
+            dir = moveDir;
         }
         //Debug.Log(isRun ? runSpeed : walkSpeed);
         //Debug.Log(runSpeed);
-        MoveDir = MoveDir * (isRun? runSpeed : walkSpeed);
-        if(MoveDir.magnitude > 0 && isRun)
+        moveDir = moveDir * (isRun? runSpeed : walkSpeed);
+        if(moveDir.magnitude > 0 && isRun)
         {
             runGauge -= 70 * Time.deltaTime;
         }
 
-        anim.SetFloat("Speed", MoveDir.magnitude);
-        if (Dir != Vector3.zero)
+        anim.SetFloat("Speed", moveDir.magnitude);
+        if (dir != Vector3.zero)
         {
-            transform.forward = Vector3.Slerp(transform.forward, Dir, Time.deltaTime * rotSpeed);
+            transform.forward = Vector3.Slerp(transform.forward, dir, Time.deltaTime * rotSpeed);
         }
-        MoveDir.y = -rb.mass;
-        rb.velocity = MoveDir;
+        moveDir.y = -rb.mass;
+        rb.velocity = moveDir;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -165,7 +204,6 @@ public class PlayerAction : MonoBehaviour
     {
         isAttack = false;
         headCollider.enabled = false;
-        //headCollider.
     }
 
     void Stun(float force)
