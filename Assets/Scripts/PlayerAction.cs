@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +11,7 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] float runSpeed = 30f;
     [SerializeField] Button runButton;
 
+    AudioSource audioSrc;
     Vector3 titlePos = new Vector3(0, 0, -22);
     Vector3 titleDir = new Vector3(0, 141, 0);
     Vector3 dir; //移動方向
@@ -32,6 +32,7 @@ public class PlayerAction : MonoBehaviour
         rb =  GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>(); //自身のアニメーターを取得
         headCollider = GetComponentInChildren<BoxCollider>(true);
+        audioSrc = GetComponent<AudioSource>();
         isAttack = false;
         anim.SetBool("isTitle", true);
     }
@@ -148,7 +149,7 @@ public class PlayerAction : MonoBehaviour
         moveDir = moveDir * (isRun? runSpeed : walkSpeed);
         if(moveDir.magnitude > 0 && isRun)
         {
-            runGauge -= 70 * Time.deltaTime;
+            runGauge -= 50 * Time.deltaTime;
         }
 
         anim.SetFloat("Speed", moveDir.magnitude);
@@ -188,6 +189,7 @@ public class PlayerAction : MonoBehaviour
 
     public void Eat()
     {
+        audioSrc.Play();
         anim.SetTrigger("Attack");
         anim.SetFloat("Speed", 0);
         isAttack = true;
@@ -206,7 +208,7 @@ public class PlayerAction : MonoBehaviour
         headCollider.enabled = false;
     }
 
-    void Stun(float force)
+    public void Stun(float force)
     {
         rb.AddForce(-transform.forward * force, ForceMode.VelocityChange);
         isStun = true;

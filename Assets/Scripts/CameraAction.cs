@@ -12,11 +12,12 @@ public class CameraAction : MonoBehaviour
     Vector3 titleDir = new Vector3(15, 6, -20);
 
     float elapsed = 0;
-
+    bool titleCamStandBy;
     // Start is called before the first frame update
     void Start()
     {
         P = GameObject.FindGameObjectWithTag("Player");
+        titleCamStandBy = false;
     }
 
     // Update is called once per frame
@@ -32,16 +33,19 @@ public class CameraAction : MonoBehaviour
         {
             case GameManager.MODE.TITLE:
                 elapsed = 0;
-                //カメラの位置。プレイヤー位置から算出する。
-                transform.position = P.transform.position + titleDir;
-                //カメラの回転。注視点はプレイヤーの少し上を見る。
-                transform.LookAt(P.transform.position + titleOffset);
+                if (!titleCamStandBy) { 
+                    //カメラの位置。プレイヤー位置から算出する。
+                    transform.position = P.transform.position + titleDir;
+                    //カメラの回転。注視点はプレイヤーの少し上を見る。
+                    transform.LookAt(P.transform.position + titleOffset);
+                    titleCamStandBy = true;
+                }
                 break;
             case GameManager.MODE.TITLE_TO_PLAY:
+                titleCamStandBy = false;
                 elapsed += Time.deltaTime;
                 transform.position = Vector3.Lerp(transform.position, P.transform.position + CamDir, elapsed / 1);
                 transform.LookAt(Vector3.Lerp(transform.position, P.transform.position + OffSet, elapsed / 1));
-                //transform.LookAt(P.transform.position + titleOffset);
                 break;
             case GameManager.MODE.PLAY:
                 //カメラの位置。プレイヤー位置から算出する。

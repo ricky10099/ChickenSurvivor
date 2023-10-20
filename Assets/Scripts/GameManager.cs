@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -37,6 +34,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Image imgRank;
     [SerializeField] Text[] txtRank = new Text[5];
     [SerializeField] GameObject dirLightObj;
+    [SerializeField] AudioClip easyTitleBGM;
+    [SerializeField] AudioClip easyPlayBGM;
+    [SerializeField] AudioClip hardTitleBGM;
+    [SerializeField] AudioClip hardPlayBGM;
+    [SerializeField] AudioClip finishBGM;
+    
+    AudioSource audioSrc;
 
     Light dirLight;
     Vector3 easyLight = new Vector3(50, -30, 0);
@@ -54,11 +58,20 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!PlayerPrefs.HasKey("Rank0"))
+        audioSrc = GetComponent<AudioSource>();
+
+        if (!PlayerPrefs.HasKey("EASYRank0"))
         {
             for(int i = 0; i < rank.Length; i++)
             {
-                PlayerPrefs.SetFloat("Rank" + i, float.MaxValue);
+                PlayerPrefs.SetFloat("EASYRank" + i, float.MaxValue);
+            }
+        }
+        if (!PlayerPrefs.HasKey("HARDRank0"))
+        {
+            for (int i = 0; i < rank.Length; i++)
+            {
+                PlayerPrefs.SetFloat("HARDRank" + i, float.MaxValue);
             }
         }
 
@@ -69,9 +82,19 @@ public class GameManager : MonoBehaviour
 
     void SetTitle()
     {
+        if(difficulty == DIFFICULTY.EASY) { 
+            audioSrc.clip = easyTitleBGM;
+        }
+        else
+        {
+            audioSrc.clip = hardTitleBGM;
+        }
+        audioSrc.loop = true;
+        audioSrc.Play();
         GameMode = MODE.TITLE;
         txtTitle.enabled = true;
         btnStart.GetComponentInChildren<Text>().text = "START";
+        btnMode.GetComponentInChildren<Text>().text = "MODE";
         btnStart.gameObject.SetActive(true);
         btnMode.gameObject.SetActive(true);
 
@@ -88,7 +111,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameStart()
-    {
+    {        
         GameMode = MODE.PLAY;
         WormLevel = 1;
         wormCount = 0;
@@ -139,6 +162,10 @@ public class GameManager : MonoBehaviour
 
     void GameFinish()
     {
+        audioSrc.clip = finishBGM;
+        audioSrc.loop = false;
+        audioSrc.Play();
+
         GameMode = MODE.OVER;
         txtMsg.text = "FINISH";
         txtMsg.enabled = true;
@@ -157,7 +184,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < rank.Length; i++)
         {
-            rank[i] = PlayerPrefs.GetFloat("Rank" + (i));
+            rank[i] = PlayerPrefs.GetFloat(difficulty + "Rank" + (i));
             txtRank[i].enabled = true;
         }
 
@@ -179,7 +206,7 @@ public class GameManager : MonoBehaviour
             rank[newRank] = clearTime;
             for (int i = 0; i < 5; i++)
             {
-                PlayerPrefs.SetFloat("Rank" + (i), rank[i]);
+                PlayerPrefs.SetFloat(difficulty + "Rank" + (i), rank[i]);
             }
         }
 
@@ -198,6 +225,16 @@ public class GameManager : MonoBehaviour
 
     void PlayTransition()
     {
+        if (difficulty == DIFFICULTY.EASY)
+        {
+            audioSrc.clip = easyPlayBGM;
+        }
+        else
+        {
+            audioSrc.clip = hardPlayBGM;
+        }
+
+        audioSrc.Play();
         GameMode = MODE.TITLE_TO_PLAY;
         txtTitle.enabled = false;
         btnStart.gameObject.SetActive(false);
@@ -243,9 +280,9 @@ public class GameManager : MonoBehaviour
 
     void ChangeMode(int mode)
     {
-        GameMode = MODE.TITLE;
-        btnMode.GetComponentInChildren<Text>().text = "MODE";
-        btnStart.GetComponentInChildren<Text>().text = "START";
+        //GameMode = MODE.TITLE;
+        //btnMode.GetComponentInChildren<Text>().text = "MODE";
+        //btnStart.GetComponentInChildren<Text>().text = "START";
 
         switch (mode)
         {
@@ -262,5 +299,7 @@ public class GameManager : MonoBehaviour
                 dirLightObj.transform.rotation = Quaternion.Euler(hardLight);
                 break;
         }
+
+        SetTitle();
     }
 }
