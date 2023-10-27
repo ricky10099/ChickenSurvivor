@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +11,7 @@ public class WormAction : MonoBehaviour
     NavMeshAgent agent;
     GameObject player;
     GameObject gameManager;
+    Animator anim;
     float baseSpeed;
 
     // Start is called before the first frame update
@@ -21,6 +21,7 @@ public class WormAction : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         baseSpeed = 3.5f;
         gameManager = GameObject.FindGameObjectWithTag("GameController");
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -38,6 +39,11 @@ public class WormAction : MonoBehaviour
                     Vector3 newPos = transform.position + dir;
                     agent.speed = baseSpeed * GameManager.WormLevel;
                     agent.SetDestination(newPos);
+                    anim.SetBool("Walk", true);
+                }
+                else
+                {
+                    anim.SetBool("Walk", false);
                 }
                 break;
         }
@@ -46,11 +52,11 @@ public class WormAction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+            Debug.Log(other.tag);
         if (other.tag == "Head")
         {
             starEffect.SetActive(true);
             model.SetActive(false);
-            //Destroy(gameObject);
             gameManager.SendMessage("WormEaten", SendMessageOptions.DontRequireReceiver);
         }
 

@@ -10,6 +10,12 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] float rotSpeed = 90.0f; //旋回速度
     [SerializeField] float runSpeed = 30f;
     [SerializeField] Button runButton;
+    [SerializeField] Image arrow;
+
+    GameObject[] worms;
+    Collider[] wormColliders;
+    Camera cam;
+    Plane[] planes;
 
     AudioSource audioSrc;
     Vector3 titlePos = new Vector3(0, 0, -22);
@@ -35,11 +41,30 @@ public class PlayerAction : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
         isAttack = false;
         anim.SetBool("isTitle", true);
+
+        cam = Camera.main;
+        worms = GameObject.FindGameObjectsWithTag("Worm");
+        wormColliders = new Collider[worms.Length];
+        for(int i = 0; i < wormColliders.Length; i++)
+        {
+            wormColliders[i] = worms[i].GetComponentInChildren<Collider>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        planes = GeometryUtility.CalculateFrustumPlanes(cam);
+        if(wormColliders.Length == 0)
+        {
+            worms = GameObject.FindGameObjectsWithTag("Worm");
+            wormColliders = new Collider[worms.Length];
+            for (int i = 0; i < wormColliders.Length; i++)
+            {
+                wormColliders[i] = worms[i].GetComponentInChildren<Collider>();
+            }
+        }
+
         switch (GameManager.GameMode)
         {
             
@@ -80,6 +105,24 @@ public class PlayerAction : MonoBehaviour
 
     void PlayModeAction()
     {
+        Vector3 dir;
+        if (worms.Length != 0) { 
+            dir = worms[0].transform.position - transform.position;
+            arrow.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (Mathf.Rad2Deg * Mathf.Atan2(dir.x, dir.z)) + 180));
+        }
+
+        for (int i = 0; i < wormColliders.Length; i++)
+        {
+            if (GeometryUtility.TestPlanesAABB(planes, wormColliders[i].bounds))
+            {
+                Debug.Log(worms[i].name + " has been detected!");
+            }
+            else
+            {
+                //Debug.Log(worms[i].name + " has not been detected");
+            }
+        }
+
         runGauge = Math.Max(0, runGauge);
         if (runGauge <= 0)
         {
