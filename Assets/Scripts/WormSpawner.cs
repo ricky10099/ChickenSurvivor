@@ -19,8 +19,8 @@ public class WormSpawner : MonoBehaviour
     {
         manager = GetComponent<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player");
-        worms = new GameObject[manager.maxWorm];
-        for(int i = 0; i < manager.maxWorm; i++)
+        worms = new GameObject[GameManager.maxWorm];
+        for(int i = 0; i < GameManager.maxWorm; i++)
         {
             worms[i] = Instantiate(wormPrefab, Vector3.zero, Quaternion.identity);
             worms[i].SetActive(false);
@@ -60,7 +60,7 @@ public class WormSpawner : MonoBehaviour
     void PlayAction()
     {
         elapsed += Time.deltaTime;
-        if (elapsed > interval && currEnemy < manager.maxWorm)
+        if (elapsed > interval && currEnemy < GameManager.maxWorm)
         {
             //Debug.Log("SpawnEnemy");
             //生成位置を求める

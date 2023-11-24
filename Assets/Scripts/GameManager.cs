@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,10 +23,10 @@ public class GameManager : MonoBehaviour
     static public DIFFICULTY difficulty;
     static public int WormLevel;
 
-    [SerializeField] public int maxWorm = 5;
+    [SerializeField] static public int maxWorm = 5;
     [SerializeField] Text txtTitle;
     [SerializeField] Text txtWorm;
-    [SerializeField] Text txtTime;
+    [SerializeField] Text txtTimer;
     [SerializeField] Text txtMsg;
     [SerializeField] Button btnStart;
     [SerializeField] Button btnMode;
@@ -99,7 +100,7 @@ public class GameManager : MonoBehaviour
         btnMode.gameObject.SetActive(true);
 
         txtWorm.enabled = false;
-        txtTime.enabled = false;
+        txtTimer.enabled = false;
         txtMsg.enabled = false;
         btnEat.gameObject.SetActive(false);
         btnRun.gameObject.SetActive(false);
@@ -122,8 +123,8 @@ public class GameManager : MonoBehaviour
 
         txtWorm.enabled = true;
         txtWorm.text = "Worm : 0 / " + maxWorm;
-        txtTime.enabled = true;
-        txtTime.text = "Time : 0.00s";
+        txtTimer.enabled = true;
+        txtTimer.text = "Time : 0.00s";
         btnEat.gameObject.SetActive(true);
         btnRun.gameObject.SetActive(true);
         txtMsg.text = "START";
@@ -134,7 +135,7 @@ public class GameManager : MonoBehaviour
     {
         if(GameMode == MODE.PLAY) {
             elapsed += Time.deltaTime;
-            txtTime.text = "Time : " + elapsed.ToString("f2") + "s";
+            txtTimer.text = "Time : " + elapsed.ToString("f2") + "s";
 
             if(elapsed > 1.5f)
             {
@@ -158,7 +159,6 @@ public class GameManager : MonoBehaviour
             GameFinish();
         }
     }
-
 
     void GameFinish()
     {

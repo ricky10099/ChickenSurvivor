@@ -239,6 +239,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6331784907187991747, guid: 9d8ed661bd9fdb34fb57fafe491d7f0f, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331784907187991747, guid: 9d8ed661bd9fdb34fb57fafe491d7f0f, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331784907187991747, guid: 9d8ed661bd9fdb34fb57fafe491d7f0f, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331784907187991747, guid: 9d8ed661bd9fdb34fb57fafe491d7f0f, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331784907187991747, guid: 9d8ed661bd9fdb34fb57fafe491d7f0f, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7404216473343764396, guid: 9d8ed661bd9fdb34fb57fafe491d7f0f, type: 3}
       propertyPath: m_Name
       value: StarEffect

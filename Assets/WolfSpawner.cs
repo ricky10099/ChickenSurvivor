@@ -20,8 +20,14 @@ public class WolfSpawner : MonoBehaviour
 
     void Ready()
     {
-        if (wolfPrefab.activeInHierarchy) { 
-            wolfPrefab.SetActive(false);
+        if(GameManager.difficulty == GameManager.DIFFICULTY.HARD) {
+            if (!wolfPrefab.activeInHierarchy)
+                wolfPrefab.SetActive(true);
+        }
+        else { 
+            if (wolfPrefab.activeInHierarchy) { 
+                wolfPrefab.SetActive(false);
+            }
         }
     }
 

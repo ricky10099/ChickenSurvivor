@@ -7,49 +7,30 @@ public class EnemyIndicator : MonoBehaviour
     [SerializeField] GameObject arrowPrefab;
 
     float indicatorDistance = 5;
-    float appearanceDistance = 50f;
+    float appearanceDistance = 20f;
 
-    private Dictionary<GameObject, GameObject> projectileToIndicator = new Dictionary<GameObject, GameObject>();
+    private Dictionary<GameObject, GameObject> wormToIndicator = new Dictionary<GameObject, GameObject>();
 
     GameObject[] worms;
-    //Collider[] wormColliders;
-    Camera cam;
-    Plane[] planes;
 
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.main;
-        worms = GameObject.FindGameObjectsWithTag("Worm");
-        //wormColliders = new Collider[worms.Length];
-        for (int i = 0; i < worms.Length; i++)
-        {
-            //wormColliders[i] = worms[i].GetComponentInChildren<Collider>();
-            if (!projectileToIndicator.ContainsKey(worms[i]))
-            {
-                GameObject newIndicator = Instantiate(arrowPrefab, Vector3.zero, Quaternion.identity);
-                projectileToIndicator.Add(worms[i], newIndicator);
-                newIndicator.SetActive(false);
-            }
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        planes = GeometryUtility.CalculateFrustumPlanes(cam);
-        if (projectileToIndicator.Count == 0)
+        if (wormToIndicator.Count < GameManager.maxWorm)
         {
             worms = GameObject.FindGameObjectsWithTag("Worm");
-            //wormColliders = new Collider[worms.Length];
-            Debug.Log(worms.Length + " Update");
+
             for (int i = 0; i < worms.Length; i++)
             {
-                //wormColliders[i] = worms[i].GetComponentInChildren<Collider>();
-                if (!projectileToIndicator.ContainsKey(worms[i]))
+                if (!wormToIndicator.ContainsKey(worms[i]))
                 {
                     GameObject newIndicator = Instantiate(arrowPrefab, Vector3.zero, Quaternion.identity);
-                    projectileToIndicator.Add(worms[i], newIndicator);
+                    wormToIndicator.Add(worms[i], newIndicator);
                     newIndicator.SetActive(false);
                 }
             }
@@ -59,17 +40,18 @@ public class EnemyIndicator : MonoBehaviour
         {
             foreach (GameObject worm in worms)
             {
-                if (GeometryUtility.TestPlanesAABB(planes, worm.GetComponentInChildren<Collider>().bounds))
+                float distance = Vector3.Distance(worm.transform.position, transform.position);
+
+                if (distance < appearanceDistance || !worm.GetComponent<WormAction>().IsModelOn)
                 {
-                    projectileToIndicator[worm].SetActive(false);
+                    wormToIndicator[worm].SetActive(false);
                 }
                 else
                 {
-                    Debug.Log(worms.Length);
-                    projectileToIndicator[worm].SetActive(true);
-                    Vector3 directionToProjectile = (worm.transform.position - transform.position).normalized;
-                    projectileToIndicator[worm].transform.position = transform.position + directionToProjectile * indicatorDistance;
-                    projectileToIndicator[worm].transform.rotation = Quaternion.LookRotation(directionToProjectile);
+                    wormToIndicator[worm].SetActive(true);
+                    Vector3 directionToWorm = (worm.transform.position - transform.position).normalized;
+                    wormToIndicator[worm].transform.position = transform.position + directionToWorm * indicatorDistance;
+                    wormToIndicator[worm].transform.rotation = Quaternion.LookRotation(directionToWorm);
                 }
             }
         }
@@ -77,7 +59,7 @@ public class EnemyIndicator : MonoBehaviour
         {
             foreach (GameObject worm in worms)
             {
-                projectileToIndicator[worm].SetActive(false);
+                wormToIndicator[worm].SetActive(false);
             }
         }
     }

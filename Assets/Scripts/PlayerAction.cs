@@ -10,61 +10,42 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] float rotSpeed = 90.0f; //旋回速度
     [SerializeField] float runSpeed = 30f;
     [SerializeField] Button runButton;
-    //[SerializeField] Image arrow;
+    [SerializeField] ParticleSystem runEffect;
+    [SerializeField] Image arrow;
+    [SerializeField] GameObject head;
 
-    GameObject[] worms;
-    Collider[] wormColliders;
-    Camera cam;
-    Plane[] planes;
+    public bool IsStun{ get{ return isStun;} }
 
-    AudioSource audioSrc;
     Vector3 titlePos = new Vector3(0, 0, -22);
     Vector3 titleDir = new Vector3(0, 141, 0);
     Vector3 dir; //移動方向
     Animator anim; //自身のアニメーター
     Rigidbody rb;
-    BoxCollider headCollider;
     float runGauge = 100;
     float elapsed = 0;
-
     bool isAttack;
-    bool isStun;
     bool isRun;
     bool isRecoverStemina;
+    bool isStun;
+    AudioSource audioSrc;
+    BoxCollider headCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         rb =  GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>(); //自身のアニメーターを取得
-        headCollider = GetComponentInChildren<BoxCollider>(true);
+        headCollider = head.GetComponent<BoxCollider>();
         audioSrc = GetComponent<AudioSource>();
         isAttack = false;
         anim.SetBool("isTitle", true);
-
-        cam = Camera.main;
-        worms = GameObject.FindGameObjectsWithTag("Worm");
-        wormColliders = new Collider[worms.Length];
-        for(int i = 0; i < wormColliders.Length; i++)
-        {
-            wormColliders[i] = worms[i].GetComponentInChildren<Collider>();
-        }
+        runEffect.Stop(true);
+        isStun = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        planes = GeometryUtility.CalculateFrustumPlanes(cam);
-        if(wormColliders.Length == 0)
-        {
-            worms = GameObject.FindGameObjectsWithTag("Worm");
-            wormColliders = new Collider[worms.Length];
-            for (int i = 0; i < wormColliders.Length; i++)
-            {
-                wormColliders[i] = worms[i].GetComponentInChildren<Collider>();
-            }
-        }
-
         switch (GameManager.GameMode)
         {
             
@@ -81,7 +62,6 @@ public class PlayerAction : MonoBehaviour
                 PlayModeAction();
                 break;
         }
-        
     }
 
     void FinishGame()
@@ -105,26 +85,6 @@ public class PlayerAction : MonoBehaviour
 
     void PlayModeAction()
     {
-        //Vector3 dir;
-        //if (worms.Length != 0) { 
-        //    ShowIndicator();
-        //    dir = worms[0].transform.position - transform.position;
-        //    float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
-        //    arrow.transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0, 1, 0));
-        //}
-
-        for (int i = 0; i < wormColliders.Length; i++)
-        {
-            if (GeometryUtility.TestPlanesAABB(planes, wormColliders[i].bounds))
-            {
-                //Debug.Log(worms[i].name + " has been detected!");
-            }
-            else
-            {
-                //Debug.Log(worms[i].name + " has not been detected");
-            }
-        }
-
         runGauge = Math.Max(0, runGauge);
         if (runGauge <= 0)
         {
@@ -189,8 +149,7 @@ public class PlayerAction : MonoBehaviour
         {
             dir = moveDir;
         }
-        //Debug.Log(isRun ? runSpeed : walkSpeed);
-        //Debug.Log(runSpeed);
+
         moveDir = moveDir * (isRun? runSpeed : walkSpeed);
         if(moveDir.magnitude > 0 && isRun)
         {
@@ -215,6 +174,8 @@ public class PlayerAction : MonoBehaviour
                 Stun((isRun ? (runSpeed * 1.1f): (walkSpeed * 1.2f)) );
             }
         }
+
+
     }
 
     public void Run()
@@ -223,6 +184,7 @@ public class PlayerAction : MonoBehaviour
         {
             isRun = true;
             isRecoverStemina = false;
+            runEffect.Play();
         }
     }
 
@@ -230,6 +192,9 @@ public class PlayerAction : MonoBehaviour
     {
         isRun = false;
         Invoke("RecoverStemina", 0.5f);
+        if (!runEffect.isStopped) { 
+            runEffect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     public void Eat()
@@ -239,11 +204,16 @@ public class PlayerAction : MonoBehaviour
         anim.SetFloat("Speed", 0);
         isAttack = true;
         rb.velocity = Vector3.zero;
+        if (GameManager.difficulty == GameManager.DIFFICULTY.EASY)
+        {
+            head.transform.localScale = new Vector3(3f, 3f, 3f);
+        }
         Invoke("Eating", 0.13f);
     }
 
     void Eating()
     {
+
         headCollider.enabled = true;
     }
 
@@ -251,11 +221,17 @@ public class PlayerAction : MonoBehaviour
     {
         isAttack = false;
         headCollider.enabled = false;
+        head.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     public void Stun(float force)
     {
-        rb.AddForce(-transform.forward * force, ForceMode.VelocityChange);
+        Stun(-transform.forward, force);
+    }
+
+    public void Stun(Vector3 Direction, float force)
+    {
+        rb.AddForce(Direction * force, ForceMode.VelocityChange);
         isStun = true;
         anim.SetFloat("Speed", 0);
         anim.SetTrigger("Stun");

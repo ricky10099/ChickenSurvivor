@@ -6,6 +6,8 @@ public class ScaleMask : MonoBehaviour
 {
     Vector3 raycastOriginOffset;
     Vector3 raycastTargetOffset;
+
+    float maxMaskSize = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,12 +32,12 @@ public class ScaleMask : MonoBehaviour
                 || hit .collider.tag == "Head")
             {
                 if(transform.localScale.x > 0)
-                transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
+                transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
             }
             else
             {
-                if(transform.localScale.x < 1)
-                transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
+                if(transform.localScale.x < maxMaskSize)
+                transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
 
             }
         }

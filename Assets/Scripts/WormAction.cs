@@ -14,6 +14,8 @@ public class WormAction : MonoBehaviour
     Animator anim;
     float baseSpeed;
 
+    public bool IsModelOn{get{return model.activeSelf;}}
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +42,12 @@ public class WormAction : MonoBehaviour
                     agent.speed = baseSpeed * GameManager.WormLevel;
                     agent.SetDestination(newPos);
                     anim.SetBool("Walk", true);
+                    anim.speed = baseSpeed * GameManager.WormLevel;
                 }
                 else
                 {
                     anim.SetBool("Walk", false);
+                    anim.speed = 1;
                 }
                 break;
         }
@@ -52,7 +56,6 @@ public class WormAction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            Debug.Log(other.tag);
         if (other.tag == "Head")
         {
             starEffect.SetActive(true);
