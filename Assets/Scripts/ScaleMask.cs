@@ -41,5 +41,9 @@ public class ScaleMask : MonoBehaviour
 
             }
         }
+        else
+        {
+            transform.localScale = Vector3.zero;
+        }
     }
 }

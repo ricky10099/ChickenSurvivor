@@ -49,6 +49,12 @@ public class WormAction : MonoBehaviour
                     anim.SetBool("Walk", false);
                     anim.speed = 1;
                 }
+
+                if(transform.position.y < -0.47)
+                {
+                    Debug.Log("-0.47");
+                    Reposition();
+                }
                 break;
         }
 
@@ -65,18 +71,7 @@ public class WormAction : MonoBehaviour
 
         if (other.name == "Tent")
         {
-            Vector3 Pos = player.transform.position;
-            float Theta = Random.Range(0, Mathf.PI * 2.0f);
-            float Radius = Random.Range(10, 20);
-            Pos.x += Mathf.Cos(Theta) * Radius;
-            Pos.x = Mathf.Max(-64, Mathf.Min(55, Pos.x));
-            Pos.z += Mathf.Sin(Theta) * Radius;
-            Pos.z = Mathf.Max(-54, Mathf.Min(59, Pos.z));
-            Pos.y = 2.5f;
-
-            agent.enabled = false;
-            transform.position = Pos;
-            agent.enabled = true;
+            Reposition();
         }
     }
 
@@ -84,5 +79,21 @@ public class WormAction : MonoBehaviour
     {
         starEffect.SetActive(false);
         model.SetActive(true);
+    }
+
+    void Reposition()
+    {
+        Vector3 Pos = player.transform.position;
+        float Theta = Random.Range(0, Mathf.PI * 2.0f);
+        float Radius = Random.Range(10, 20);
+        Pos.x += Mathf.Cos(Theta) * Radius;
+        Pos.x = Mathf.Max(-64, Mathf.Min(55, Pos.x));
+        Pos.z += Mathf.Sin(Theta) * Radius;
+        Pos.z = Mathf.Max(-54, Mathf.Min(59, Pos.z));
+        Pos.y = 2.5f;
+
+        agent.enabled = false;
+        transform.position = Pos;
+        agent.enabled = true;
     }
 }
