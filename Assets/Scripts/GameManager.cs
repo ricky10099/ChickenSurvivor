@@ -40,7 +40,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip hardTitleBGM;
     [SerializeField] AudioClip hardPlayBGM;
     [SerializeField] AudioClip finishBGM;
-    
+    [SerializeField] GameObject rain;
+    [SerializeField] GameObject[] fire = new GameObject[5];
+    [SerializeField] GameObject[] thunder = new GameObject[5];
+
     AudioSource audioSrc;
 
     Light dirLight;
@@ -52,9 +55,10 @@ public class GameManager : MonoBehaviour
     Color32 hardAmbientColor = new Color32(46, 61, 152, 0);
 
     float[] rank = new float[5];
-    int wormCount = 0;
     float elapsed = 0.0f;
     float clearTime;
+    int wormCount = 0;
+    int treeIdx = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -85,10 +89,12 @@ public class GameManager : MonoBehaviour
     {
         if(difficulty == DIFFICULTY.EASY) { 
             audioSrc.clip = easyTitleBGM;
+            rain.SetActive(false);
         }
         else
         {
             audioSrc.clip = hardTitleBGM;
+            rain.SetActive(true);
         }
         audioSrc.loop = true;
         audioSrc.Play();
@@ -140,6 +146,16 @@ public class GameManager : MonoBehaviour
             if(elapsed > 1.5f)
             {
                 txtMsg.enabled = false;
+            }
+
+            if(difficulty == DIFFICULTY.HARD)
+            {
+                int time = (int)elapsed;
+                if (time > 5)
+                {
+                    //treeIdx = UnityEngine.Random.Range(0, 4);
+                    LightningStrike();
+                }
             }
         }
 
@@ -301,5 +317,21 @@ public class GameManager : MonoBehaviour
         }
 
         SetTitle();
+    }
+
+    void LightningStrike()
+    {
+        while (thunder[treeIdx].activeSelf)
+        {
+            treeIdx = UnityEngine.Random.Range(0, 4);
+        }
+
+        thunder[treeIdx].SetActive(true);
+        Invoke("BurnTree", 0.3f);
+    }
+
+    void BurnTree()
+    {
+        fire[treeIdx].SetActive(true);
     }
 }
