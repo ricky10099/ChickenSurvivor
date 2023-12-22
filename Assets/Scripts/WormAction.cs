@@ -14,7 +14,7 @@ public class WormAction : MonoBehaviour
     Animator anim;
     float baseSpeed;
 
-    public bool IsModelOn{get{return model.activeSelf;}}
+    public bool IsModelOn{get{return model.activeInHierarchy;}}
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class WormAction : MonoBehaviour
                     agent.speed = baseSpeed * GameManager.WormLevel;
                     agent.SetDestination(newPos);
                     anim.SetBool("Walk", true);
-                    anim.speed = baseSpeed * GameManager.WormLevel;
+                    anim.speed = GameManager.WormLevel;
                 }
                 else
                 {

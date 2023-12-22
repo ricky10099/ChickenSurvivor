@@ -199,6 +199,10 @@ public class PlayerAction : MonoBehaviour
 
     public void Eat()
     {
+        if(isAttack)
+        {
+            return;
+        }
         audioSrc.Play();
         anim.SetTrigger("Attack");
         anim.SetFloat("Speed", 0);
@@ -207,6 +211,11 @@ public class PlayerAction : MonoBehaviour
         if (GameManager.difficulty == GameManager.DIFFICULTY.EASY)
         {
             head.transform.localScale = new Vector3(3f, 3f, 3f);
+        }
+        else
+        {
+            head.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
         }
         Invoke("Eating", 0.13f);
     }

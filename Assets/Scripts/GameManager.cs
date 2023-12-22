@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject rain;
     [SerializeField] GameObject[] fire = new GameObject[5];
     [SerializeField] GameObject[] thunder = new GameObject[5];
-
+    [SerializeField] Sprite[] startBtnImages = new Sprite[2];
     AudioSource audioSrc;
 
     Light dirLight;
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     float clearTime;
     int wormCount = 0;
     int treeIdx = 0;
+    int thunderTimes = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -87,12 +88,18 @@ public class GameManager : MonoBehaviour
 
     void SetTitle()
     {
-        if(difficulty == DIFFICULTY.EASY) { 
+        if(difficulty == DIFFICULTY.EASY) {
+            RenderSettings.ambientLight = easyAmbientColor;
+            dirLight.color = easyDirColor;
+            dirLightObj.transform.rotation = Quaternion.Euler(easyLight);
             audioSrc.clip = easyTitleBGM;
             rain.SetActive(false);
         }
         else
         {
+            RenderSettings.ambientLight = hardAmbientColor;
+            dirLight.color = hardDirColor;
+            dirLightObj.transform.rotation = Quaternion.Euler(hardLight);
             audioSrc.clip = hardTitleBGM;
             rain.SetActive(true);
         }
@@ -101,6 +108,7 @@ public class GameManager : MonoBehaviour
         GameMode = MODE.TITLE;
         txtTitle.enabled = true;
         btnStart.GetComponentInChildren<Text>().text = "START";
+        btnStart.GetComponentInChildren<Image>().sprite = startBtnImages[0];
         btnMode.GetComponentInChildren<Text>().text = "MODE";
         btnStart.gameObject.SetActive(true);
         btnMode.gameObject.SetActive(true);
@@ -114,7 +122,11 @@ public class GameManager : MonoBehaviour
         for(int i = 0; i < 5; i++)
         {
             txtRank[i].enabled = false;
+            thunder[i].SetActive(false);
+            fire[i].SetActive(false);
         }
+
+        thunderTimes = 0;
     }
 
     public void GameStart()
@@ -151,10 +163,12 @@ public class GameManager : MonoBehaviour
             if(difficulty == DIFFICULTY.HARD)
             {
                 int time = (int)elapsed;
-                if (time > 5)
+                if ((time / 5) > thunderTimes)
                 {
-                    //treeIdx = UnityEngine.Random.Range(0, 4);
+                    treeIdx = UnityEngine.Random.Range(0, 4);
                     LightningStrike();
+                    //BurnTree();
+                    ++thunderTimes;
                 }
             }
         }
@@ -273,7 +287,7 @@ public class GameManager : MonoBehaviour
                 SetTitle();
                 break;
             case MODE.SELECT_MODE:
-                ChangeMode(1);
+                ChangeMode(DIFFICULTY.EASY);
                 break;
         }
     }
@@ -285,49 +299,62 @@ public class GameManager : MonoBehaviour
             case MODE.TITLE:
                 btnMode.GetComponentInChildren<Text>().text = "HARD";
                 btnStart.GetComponentInChildren<Text>().text = "EASY";
+                btnStart.GetComponentInChildren<Image>().sprite = startBtnImages[1];
                 GameMode = MODE.SELECT_MODE;
                 break;
             case MODE.SELECT_MODE:
-                ChangeMode(2);
+                ChangeMode(DIFFICULTY.HARD);
                 break;
         }
 
     }
 
-    void ChangeMode(int mode)
+    void ChangeMode(DIFFICULTY mode)
     {
         //GameMode = MODE.TITLE;
         //btnMode.GetComponentInChildren<Text>().text = "MODE";
         //btnStart.GetComponentInChildren<Text>().text = "START";
 
-        switch (mode)
-        {
-            case 1:
-                difficulty = DIFFICULTY.EASY;
-                RenderSettings.ambientLight = easyAmbientColor;
-                dirLight.color = easyDirColor;
-                dirLightObj.transform.rotation = Quaternion.Euler(easyLight);
-                break;
-            case 2:
-                difficulty = DIFFICULTY.HARD;
-                RenderSettings.ambientLight = hardAmbientColor;
-                dirLight.color = hardDirColor;
-                dirLightObj.transform.rotation = Quaternion.Euler(hardLight);
-                break;
+        //switch (mode)
+        //{
+        //    case 1:
+        //difficulty = mode;
+        //        //RenderSettings.ambientLight = easyAmbientColor;
+        //        //dirLight.color = easyDirColor;
+        //        //dirLightObj.transform.rotation = Quaternion.Euler(easyLight);
+        //        break;
+        //    case 2:
+        //        difficulty = DIFFICULTY.HARD;
+        //        //RenderSettings.ambientLight = hardAmbientColor;
+        //        //dirLight.color = hardDirColor;
+        //        //dirLightObj.transform.rotation = Quaternion.Euler(hardLight);
+        //        break;
+        //}
+        if(difficulty != mode)
+        { 
+            difficulty = mode;
+            SetTitle();
         }
 
-        SetTitle();
+        GameMode = MODE.TITLE;
+        btnStart.GetComponentInChildren<Text>().text = "START";
+        btnStart.GetComponentInChildren<Image>().sprite = startBtnImages[0];
+        btnMode.GetComponentInChildren<Text>().text = "MODE";
     }
 
     void LightningStrike()
     {
-        while (thunder[treeIdx].activeSelf)
+        while (thunder[treeIdx].activeInHierarchy && thunderTimes < thunder.Length)
         {
-            treeIdx = UnityEngine.Random.Range(0, 4);
+            treeIdx = UnityEngine.Random.Range(0, 5);
+            if (!thunder[treeIdx].activeSelf)
+            {
+                break;
+            }
         }
 
         thunder[treeIdx].SetActive(true);
-        Invoke("BurnTree", 0.3f);
+        Invoke("BurnTree", 0.5f);
     }
 
     void BurnTree()
