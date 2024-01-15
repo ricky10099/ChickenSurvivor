@@ -130,11 +130,11 @@ public class PlayerAction : MonoBehaviour
 
         float v;
         float h;
+
         if (Application.platform == RuntimePlatform.IPhonePlayer)
         {
             h = Input.acceleration.x;
             v = Input.acceleration.y;
-
         }
         else
         {
@@ -199,7 +199,7 @@ public class PlayerAction : MonoBehaviour
 
     public void Eat()
     {
-        if(isAttack)
+        if(isAttack || isStun)
         {
             return;
         }
